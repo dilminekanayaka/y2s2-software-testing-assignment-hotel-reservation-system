@@ -1,0 +1,32 @@
+{
+  "name": "dilminekanayaka/flower-garden-hotels",
+  "description": "Complete Hotel Reservation System - Flower Garden Hotels",
+  "type": "project",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Dilmin Ekanayaka",
+      "email": "nisadiwijerathna@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=7.4"
+  },
+  "require-dev": {},
+  "autoload": {
+    "psr-4": {
+      "App\\": "src/"
+    }
+  },
+  "scripts": {
+    "post-install-cmd": [
+      "echo 'Flower Garden Hotels installed successfully!'"
+    ]
+  },
+  "config": {
+    "optimize-autoloader": true,
+    "sort-packages": true
+  },
+  "minimum-stability": "stable",
+  "prefer-stable": true
+}
