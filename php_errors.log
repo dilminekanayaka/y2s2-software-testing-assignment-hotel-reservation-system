@@ -1,0 +1,68 @@
+[18-Sep-2025 06:08:27 Europe/Berlin] PHP Notice:  Undefined variable: error in C:\Xampp\htdocs\SereneTripsLK\booking.php on line 771
+[18-Sep-2025 06:11:20 Europe/Berlin] PHP Notice:  session_start(): A session had already been started - ignoring in C:\Xampp\htdocs\SereneTripsLK\admin\dashboard.php on line 6
+[18-Sep-2025 06:11:42 Europe/Berlin] PHP Notice:  session_start(): A session had already been started - ignoring in C:\Xampp\htdocs\SereneTripsLK\admin\dashboard.php on line 6
+[18-Sep-2025 06:11:44 Europe/Berlin] PHP Warning:  mail(): Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() in C:\Xampp\htdocs\SereneTripsLK\email_functions.php on line 224
+[18-Sep-2025 06:11:44 Europe/Berlin] Failed to send email to: pasindusupun461@gmail.com
+[18-Sep-2025 06:11:44 Europe/Berlin] Failed to send status update email to: pasindusupun461@gmail.com
+[18-Sep-2025 06:11:53 Europe/Berlin] PHP Notice:  session_start(): A session had already been started - ignoring in C:\Xampp\htdocs\SereneTripsLK\admin\dashboard.php on line 6
+[18-Sep-2025 06:12:04 Europe/Berlin] PHP Notice:  session_start(): A session had already been started - ignoring in C:\Xampp\htdocs\SereneTripsLK\admin\dashboard.php on line 6
+[18-Sep-2025 06:12:08 Europe/Berlin] PHP Notice:  session_start(): A session had already been started - ignoring in C:\Xampp\htdocs\SereneTripsLK\admin\manage_rooms.php on line 5
+[18-Sep-2025 06:12:15 Europe/Berlin] PHP Notice:  session_start(): A session had already been started - ignoring in C:\Xampp\htdocs\SereneTripsLK\admin\manage_reservations.php on line 5
+[18-Sep-2025 06:12:24 Europe/Berlin] PHP Notice:  session_start(): A session had already been started - ignoring in C:\Xampp\htdocs\SereneTripsLK\admin\manage_admins.php on line 5
+[18-Sep-2025 06:12:28 Europe/Berlin] PHP Notice:  session_start(): A session had already been started - ignoring in C:\Xampp\htdocs\SereneTripsLK\admin\dashboard.php on line 6
+[18-Sep-2025 06:12:32 Europe/Berlin] PHP Notice:  session_start(): A session had already been started - ignoring in C:\Xampp\htdocs\SereneTripsLK\admin\manage_admins.php on line 5
+[18-Sep-2025 06:12:34 Europe/Berlin] PHP Notice:  session_start(): A session had already been started - ignoring in C:\Xampp\htdocs\SereneTripsLK\admin\dashboard.php on line 6
+[18-Sep-2025 06:13:48 Europe/Berlin] PHP Notice:  session_start(): A session had already been started - ignoring in C:\Xampp\htdocs\SereneTripsLK\admin\dashboard.php on line 6
+[18-Sep-2025 06:13:50 Europe/Berlin] PHP Warning:  mail(): Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() in C:\Xampp\htdocs\SereneTripsLK\email_functions.php on line 224
+[18-Sep-2025 06:13:50 Europe/Berlin] Failed to send email to: pasindusupun461@gmail.com
+[18-Sep-2025 06:13:50 Europe/Berlin] Failed to send status update email to: pasindusupun461@gmail.com
+[18-Sep-2025 06:13:50 Europe/Berlin] PHP Notice:  session_start(): A session had already been started - ignoring in C:\Xampp\htdocs\SereneTripsLK\admin\dashboard.php on line 6
+[18-Sep-2025 06:13:53 Europe/Berlin] PHP Warning:  mail(): Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() in C:\Xampp\htdocs\SereneTripsLK\email_functions.php on line 224
+[18-Sep-2025 06:13:53 Europe/Berlin] Failed to send email to: pasindusupun461@gmail.com
+[18-Sep-2025 06:13:53 Europe/Berlin] Failed to send status update email to: pasindusupun461@gmail.com
+[18-Sep-2025 06:14:18 Europe/Berlin] PHP Notice:  session_start(): A session had already been started - ignoring in C:\Xampp\htdocs\SereneTripsLK\admin\dashboard.php on line 6
+[18-Sep-2025 06:14:20 Europe/Berlin] PHP Warning:  mail(): Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() in C:\Xampp\htdocs\SereneTripsLK\email_functions.php on line 224
+[18-Sep-2025 06:14:20 Europe/Berlin] Failed to send email to: pasindusupun461@gmail.com
+[18-Sep-2025 06:14:20 Europe/Berlin] Failed to send status update email to: pasindusupun461@gmail.com
+[18-Sep-2025 06:14:29 Europe/Berlin] PHP Notice:  session_start(): A session had already been started - ignoring in C:\Xampp\htdocs\SereneTripsLK\admin\manage_admins.php on line 5
+[18-Sep-2025 06:14:30 Europe/Berlin] PHP Notice:  session_start(): A session had already been started - ignoring in C:\Xampp\htdocs\SereneTripsLK\admin\manage_rooms.php on line 5
+[18-Sep-2025 06:14:31 Europe/Berlin] PHP Notice:  session_start(): A session had already been started - ignoring in C:\Xampp\htdocs\SereneTripsLK\admin\manage_reservations.php on line 5
+[18-Sep-2025 06:14:36 Europe/Berlin] PHP Notice:  session_start(): A session had already been started - ignoring in C:\Xampp\htdocs\SereneTripsLK\admin\dashboard.php on line 6
+[18-Sep-2025 06:14:42 Europe/Berlin] PHP Notice:  session_start(): A session had already been started - ignoring in C:\Xampp\htdocs\SereneTripsLK\admin\dashboard.php on line 6
+[18-Sep-2025 06:15:35 Europe/Berlin] PHP Notice:  session_start(): A session had already been started - ignoring in C:\Xampp\htdocs\SereneTripsLK\admin\login.php on line 5
+[18-Sep-2025 06:15:43 Europe/Berlin] PHP Notice:  session_start(): A session had already been started - ignoring in C:\Xampp\htdocs\SereneTripsLK\admin\login.php on line 5
+[18-Sep-2025 06:15:46 Europe/Berlin] PHP Notice:  session_start(): A session had already been started - ignoring in C:\Xampp\htdocs\SereneTripsLK\admin\login.php on line 5
+[18-Sep-2025 06:15:46 Europe/Berlin] PHP Notice:  session_start(): A session had already been started - ignoring in C:\Xampp\htdocs\SereneTripsLK\admin\dashboard.php on line 6
+[18-Sep-2025 06:23:09 Europe/Berlin] PHP Notice:  session_start(): A session had already been started - ignoring in C:\Xampp\htdocs\SereneTripsLK\admin\dashboard.php on line 6
+[18-Sep-2025 06:23:09 Europe/Berlin] PHP Notice:  session_start(): A session had already been started - ignoring in C:\Xampp\htdocs\SereneTripsLK\admin\dashboard.php on line 6
+[18-Sep-2025 06:23:10 Europe/Berlin] PHP Notice:  session_start(): A session had already been started - ignoring in C:\Xampp\htdocs\SereneTripsLK\admin\dashboard.php on line 6
+[18-Sep-2025 06:23:10 Europe/Berlin] PHP Notice:  session_start(): A session had already been started - ignoring in C:\Xampp\htdocs\SereneTripsLK\admin\dashboard.php on line 6
+[18-Sep-2025 06:23:11 Europe/Berlin] PHP Notice:  session_start(): A session had already been started - ignoring in C:\Xampp\htdocs\SereneTripsLK\admin\manage_admins.php on line 5
+[18-Sep-2025 06:23:12 Europe/Berlin] PHP Notice:  session_start(): A session had already been started - ignoring in C:\Xampp\htdocs\SereneTripsLK\admin\dashboard.php on line 6
+[18-Sep-2025 06:23:13 Europe/Berlin] PHP Notice:  session_start(): A session had already been started - ignoring in C:\Xampp\htdocs\SereneTripsLK\admin\reservation_details.php on line 6
+[18-Sep-2025 06:23:21 Europe/Berlin] PHP Notice:  session_start(): A session had already been started - ignoring in C:\Xampp\htdocs\SereneTripsLK\admin\reservation_details.php on line 6
+[18-Sep-2025 06:23:29 Europe/Berlin] PHP Notice:  session_start(): A session had already been started - ignoring in C:\Xampp\htdocs\SereneTripsLK\admin\reservation_details.php on line 6
+[18-Sep-2025 06:27:06 Europe/Berlin] PHP Notice:  session_start(): A session had already been started - ignoring in C:\Xampp\htdocs\SereneTripsLK\admin\dashboard.php on line 6
+[18-Sep-2025 06:27:10 Europe/Berlin] PHP Notice:  session_start(): A session had already been started - ignoring in C:\Xampp\htdocs\SereneTripsLK\admin\manage_admins.php on line 5
+[18-Sep-2025 06:27:12 Europe/Berlin] PHP Notice:  session_start(): A session had already been started - ignoring in C:\Xampp\htdocs\SereneTripsLK\admin\manage_rooms.php on line 5
+[18-Sep-2025 06:27:14 Europe/Berlin] PHP Notice:  session_start(): A session had already been started - ignoring in C:\Xampp\htdocs\SereneTripsLK\admin\manage_reservations.php on line 5
+[18-Sep-2025 06:27:15 Europe/Berlin] PHP Notice:  session_start(): A session had already been started - ignoring in C:\Xampp\htdocs\SereneTripsLK\admin\dashboard.php on line 6
+[18-Sep-2025 06:31:14 Europe/Berlin] PHP Notice:  session_start(): A session had already been started - ignoring in C:\Xampp\htdocs\SereneTripsLK\admin\reservation_details.php on line 6
+[18-Sep-2025 06:31:17 Europe/Berlin] PHP Notice:  session_start(): A session had already been started - ignoring in C:\Xampp\htdocs\SereneTripsLK\admin\reservation_details.php on line 6
+[18-Sep-2025 06:31:19 Europe/Berlin] PHP Warning:  mail(): Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() in C:\Xampp\htdocs\SereneTripsLK\email_functions.php on line 224
+[18-Sep-2025 06:31:19 Europe/Berlin] Failed to send email to: pasindusupun461@gmail.com
+[18-Sep-2025 06:31:19 Europe/Berlin] Failed to send status update email to: pasindusupun461@gmail.com
+[18-Sep-2025 06:31:25 Europe/Berlin] PHP Notice:  session_start(): A session had already been started - ignoring in C:\Xampp\htdocs\SereneTripsLK\admin\reservation_details.php on line 6
+[18-Sep-2025 06:31:27 Europe/Berlin] PHP Warning:  mail(): Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() in C:\Xampp\htdocs\SereneTripsLK\email_functions.php on line 224
+[18-Sep-2025 06:31:27 Europe/Berlin] Failed to send email to: pasindusupun461@gmail.com
+[18-Sep-2025 06:31:27 Europe/Berlin] Failed to send status update email to: pasindusupun461@gmail.com
+[18-Sep-2025 06:38:15 Europe/Berlin] PHP Notice:  session_start(): A session had already been started - ignoring in C:\Xampp\htdocs\SereneTripsLK\admin\login.php on line 5
+[18-Sep-2025 06:38:15 Europe/Berlin] PHP Notice:  session_start(): A session had already been started - ignoring in C:\Xampp\htdocs\SereneTripsLK\admin\dashboard.php on line 6
+[18-Sep-2025 06:38:17 Europe/Berlin] PHP Notice:  session_start(): A session had already been started - ignoring in C:\Xampp\htdocs\SereneTripsLK\admin\manage_admins.php on line 5
+[18-Sep-2025 06:38:20 Europe/Berlin] PHP Notice:  session_start(): A session had already been started - ignoring in C:\Xampp\htdocs\SereneTripsLK\admin\manage_rooms.php on line 5
+[18-Sep-2025 06:40:00 Europe/Berlin] PHP Notice:  session_start(): A session had already been started - ignoring in C:\Xampp\htdocs\SereneTripsLK\admin\manage_rooms.php on line 5
+[18-Sep-2025 06:40:00 Europe/Berlin] PHP Notice:  session_start(): A session had already been started - ignoring in C:\Xampp\htdocs\SereneTripsLK\admin\manage_rooms.php on line 5
+[18-Sep-2025 06:40:01 Europe/Berlin] PHP Notice:  session_start(): A session had already been started - ignoring in C:\Xampp\htdocs\SereneTripsLK\admin\manage_rooms.php on line 5
+[18-Sep-2025 06:40:02 Europe/Berlin] PHP Notice:  session_start(): A session had already been started - ignoring in C:\Xampp\htdocs\SereneTripsLK\admin\dashboard.php on line 6
+[18-Sep-2025 06:40:04 Europe/Berlin] PHP Notice:  session_start(): A session had already been started - ignoring in C:\Xampp\htdocs\SereneTripsLK\admin\reservation_details.php on line 6
+[18-Sep-2025 06:40:08 Europe/Berlin] PHP Notice:  session_start(): A session had already been started - ignoring in C:\Xampp\htdocs\SereneTripsLK\admin\dashboard.php on line 6
