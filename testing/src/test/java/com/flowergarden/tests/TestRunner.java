@@ -20,7 +20,7 @@ public class TestRunner {
         testClasses.add(UserRegistrationTest.class);
         testClasses.add(UserLoginTest.class);
         testClasses.add(HotelSearchTest.class);
-        testClasses.add(HotelBookingTest.class);
+        testClasses.add(RoomBookingTest.class);
         testClasses.add(ReservationViewTest.class);
         testClasses.add(ReservationCancellationTest.class);
         

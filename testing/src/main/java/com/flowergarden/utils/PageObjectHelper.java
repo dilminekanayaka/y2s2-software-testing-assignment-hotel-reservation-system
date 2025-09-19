@@ -115,6 +115,83 @@ public class PageObjectHelper {
     }
     
     /**
+     * Select option from dropdown/select element
+     */
+    public void selectOption(By locator, String optionValue) {
+        WebElement element = waitForElementToBeVisible(locator);
+        org.openqa.selenium.support.ui.Select select = new org.openqa.selenium.support.ui.Select(element);
+        select.selectByValue(optionValue);
+    }
+    
+    /**
+     * Select option from dropdown/select element by visible text
+     */
+    public void selectOptionByText(By locator, String optionText) {
+        WebElement element = waitForElementToBeVisible(locator);
+        org.openqa.selenium.support.ui.Select select = new org.openqa.selenium.support.ui.Select(element);
+        select.selectByVisibleText(optionText);
+    }
+    
+    /**
+     * Smart method to handle both input fields and select elements
+     */
+    public void setElementValue(By locator, String value) {
+        WebElement element = waitForElementToBeVisible(locator);
+        String tagName = element.getTagName().toLowerCase();
+        
+        if ("select".equals(tagName)) {
+            // Handle select element
+            org.openqa.selenium.support.ui.Select select = new org.openqa.selenium.support.ui.Select(element);
+            try {
+                select.selectByValue(value);
+            } catch (Exception e) {
+                // If value selection fails, try by visible text
+                try {
+                    select.selectByVisibleText(value);
+                } catch (Exception e2) {
+                    // If both fail, try by index
+                    try {
+                        select.selectByIndex(Integer.parseInt(value));
+                    } catch (Exception e3) {
+                        throw new RuntimeException("Could not select option '" + value + "' from select element", e3);
+                    }
+                }
+            }
+        } else {
+            // Handle input element
+            element.clear();
+            element.sendKeys(value);
+        }
+    }
+    
+    /**
+     * Scroll to bottom of page
+     */
+    public void scrollToBottom() {
+        ((org.openqa.selenium.JavascriptExecutor) driver)
+            .executeScript("window.scrollTo(0, document.body.scrollHeight);");
+        delay(1000); // Wait for content to load
+    }
+    
+    /**
+     * Scroll to top of page
+     */
+    public void scrollToTop() {
+        ((org.openqa.selenium.JavascriptExecutor) driver)
+            .executeScript("window.scrollTo(0, 0);");
+        delay(500);
+    }
+    
+    /**
+     * Scroll down by specified pixels
+     */
+    public void scrollDown(int pixels) {
+        ((org.openqa.selenium.JavascriptExecutor) driver)
+            .executeScript("window.scrollBy(0, " + pixels + ");");
+        delay(500);
+    }
+    
+    /**
      * Get text from element with wait
      */
     public String getTextFromElement(By locator) {
@@ -180,6 +257,14 @@ public class PageObjectHelper {
     public List<WebElement> getElements(By locator) {
         waitForElementToBePresent(locator);
         return driver.findElements(locator);
+    }
+    
+    /**
+     * Get single element matching locator
+     */
+    public WebElement getElement(By locator) {
+        waitForElementToBePresent(locator);
+        return driver.findElement(locator);
     }
     
     /**
@@ -369,53 +454,42 @@ public class PageObjectHelper {
     }
     
     /**
-     * Smart form submission that handles all click issues
+     * Smart form submission using alternative button locators
      */
     public boolean smartFormSubmit(By buttonLocator) {
         System.out.println("🔘 Attempting smart form submission...");
         
-        // Method 1: Try safe click
-        System.out.println("   Method 1: Safe click...");
-        if (safeClickElement(buttonLocator)) {
-            System.out.println("   ✅ Safe click successful");
-            return true;
-        }
-        
-        // Method 2: Try force click
-        System.out.println("   Method 2: Force click...");
-        if (forceClickElement(buttonLocator)) {
-            System.out.println("   ✅ Force click successful");
-            return true;
-        }
-        
-        // Method 3: Try alternative button locators
-        System.out.println("   Method 3: Alternative button locators...");
+        // Method 1: Try alternative button locators
+        System.out.println("   Method 1: Alternative button locators...");
         By[] altLocators = {
             By.xpath("//button[@type='submit']"),
             By.xpath("//input[@type='submit']"),
-            By.xpath("//button[contains(text(), 'Register')]"),
-            By.xpath("//button[contains(text(), 'Create')]"),
+            By.xpath("//button[contains(text(), 'Search Hotels')]"),
+            By.xpath("//button[contains(text(), 'Search')]"),
             By.xpath("//button[contains(text(), 'Submit')]"),
-            By.xpath("//input[@value='Register']"),
-            By.xpath("//input[@value='Create Account']")
+            By.xpath("//button[contains(@class, 'search-btn')]"),
+            By.xpath("//button[contains(@class, 'btn')]")
         };
         
         for (By altLocator : altLocators) {
             try {
                 if (isElementDisplayed(altLocator)) {
                     System.out.println("   Found alternative button: " + altLocator);
-                    if (safeClickElement(altLocator)) {
+                    try {
+                        clickElement(altLocator);
                         System.out.println("   ✅ Alternative button click successful");
                         return true;
+                    } catch (Exception e) {
+                        System.out.println("   Alternative button click failed: " + e.getMessage());
                     }
                 }
             } catch (Exception e) {
-                System.out.println("   Alternative button failed: " + e.getMessage());
+                System.out.println("   Alternative button check failed: " + e.getMessage());
             }
         }
         
-        // Method 4: JavaScript form submission
-        System.out.println("   Method 4: JavaScript form submission...");
+        // Method 2: JavaScript form submission
+        System.out.println("   Method 2: JavaScript form submission...");
         try {
             ((org.openqa.selenium.JavascriptExecutor) driver)
                 .executeScript("document.querySelector('form').submit();");
@@ -425,15 +499,15 @@ public class PageObjectHelper {
             System.out.println("   JavaScript form submission failed: " + e.getMessage());
         }
         
-        // Method 5: Try clicking any submit button
-        System.out.println("   Method 5: Any submit button...");
+        // Method 3: Try clicking any submit button with JavaScript
+        System.out.println("   Method 3: JavaScript submit button click...");
         try {
             ((org.openqa.selenium.JavascriptExecutor) driver)
                 .executeScript("document.querySelector('button[type=\"submit\"], input[type=\"submit\"]').click();");
-            System.out.println("   ✅ Any submit button click successful");
+            System.out.println("   ✅ JavaScript submit button click successful");
             return true;
         } catch (Exception e) {
-            System.out.println("   Any submit button click failed: " + e.getMessage());
+            System.out.println("   JavaScript submit button click failed: " + e.getMessage());
         }
         
         System.out.println("   ❌ All form submission methods failed");

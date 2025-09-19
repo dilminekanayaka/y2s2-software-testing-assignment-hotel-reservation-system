@@ -69,3 +69,97 @@
 [19-Sep-2025 04:19:26 Europe/Berlin] Database connection failed: SQLSTATE[HY000] [2002] php_network_getaddresses: getaddrinfo failed: No such host is known. 
 [19-Sep-2025 04:19:43 Europe/Berlin] Database connection failed: SQLSTATE[HY000] [2002] php_network_getaddresses: getaddrinfo failed: No such host is known. 
 [19-Sep-2025 04:19:44 Europe/Berlin] Database connection failed: SQLSTATE[HY000] [2002] php_network_getaddresses: getaddrinfo failed: No such host is known. 
+[19-Sep-2025 12:14:11 Europe/Berlin] PHP Warning:  include(header.php): failed to open stream: No such file or directory in C:\Xampp\htdocs\SereneTripsLK\room_details.php on line 307
+[19-Sep-2025 12:14:11 Europe/Berlin] PHP Warning:  include(): Failed opening 'header.php' for inclusion (include_path='C:\Xampp\php\PEAR') in C:\Xampp\htdocs\SereneTripsLK\room_details.php on line 307
+[19-Sep-2025 12:14:11 Europe/Berlin] PHP Warning:  include(footer.php): failed to open stream: No such file or directory in C:\Xampp\htdocs\SereneTripsLK\room_details.php on line 434
+[19-Sep-2025 12:14:11 Europe/Berlin] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='C:\Xampp\php\PEAR') in C:\Xampp\htdocs\SereneTripsLK\room_details.php on line 434
+[19-Sep-2025 12:15:06 Europe/Berlin] PHP Warning:  include(header.php): failed to open stream: No such file or directory in C:\Xampp\htdocs\SereneTripsLK\room_details.php on line 307
+[19-Sep-2025 12:15:06 Europe/Berlin] PHP Warning:  include(): Failed opening 'header.php' for inclusion (include_path='C:\Xampp\php\PEAR') in C:\Xampp\htdocs\SereneTripsLK\room_details.php on line 307
+[19-Sep-2025 12:15:06 Europe/Berlin] PHP Warning:  include(footer.php): failed to open stream: No such file or directory in C:\Xampp\htdocs\SereneTripsLK\room_details.php on line 434
+[19-Sep-2025 12:15:06 Europe/Berlin] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='C:\Xampp\php\PEAR') in C:\Xampp\htdocs\SereneTripsLK\room_details.php on line 434
+[19-Sep-2025 12:15:06 Europe/Berlin] PHP Warning:  include(header.php): failed to open stream: No such file or directory in C:\Xampp\htdocs\SereneTripsLK\room_details.php on line 307
+[19-Sep-2025 12:15:06 Europe/Berlin] PHP Warning:  include(): Failed opening 'header.php' for inclusion (include_path='C:\Xampp\php\PEAR') in C:\Xampp\htdocs\SereneTripsLK\room_details.php on line 307
+[19-Sep-2025 12:15:06 Europe/Berlin] PHP Warning:  include(footer.php): failed to open stream: No such file or directory in C:\Xampp\htdocs\SereneTripsLK\room_details.php on line 434
+[19-Sep-2025 12:15:06 Europe/Berlin] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='C:\Xampp\php\PEAR') in C:\Xampp\htdocs\SereneTripsLK\room_details.php on line 434
+[19-Sep-2025 12:15:23 Europe/Berlin] PHP Warning:  include(header.php): failed to open stream: No such file or directory in C:\Xampp\htdocs\SereneTripsLK\room_details.php on line 307
+[19-Sep-2025 12:15:23 Europe/Berlin] PHP Warning:  include(): Failed opening 'header.php' for inclusion (include_path='C:\Xampp\php\PEAR') in C:\Xampp\htdocs\SereneTripsLK\room_details.php on line 307
+[19-Sep-2025 12:15:23 Europe/Berlin] PHP Warning:  include(footer.php): failed to open stream: No such file or directory in C:\Xampp\htdocs\SereneTripsLK\room_details.php on line 434
+[19-Sep-2025 12:15:23 Europe/Berlin] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='C:\Xampp\php\PEAR') in C:\Xampp\htdocs\SereneTripsLK\room_details.php on line 434
+[19-Sep-2025 12:16:39 Europe/Berlin] PHP Warning:  include(header.php): failed to open stream: No such file or directory in C:\Xampp\htdocs\SereneTripsLK\room_details.php on line 307
+[19-Sep-2025 12:16:39 Europe/Berlin] PHP Warning:  include(): Failed opening 'header.php' for inclusion (include_path='C:\Xampp\php\PEAR') in C:\Xampp\htdocs\SereneTripsLK\room_details.php on line 307
+[19-Sep-2025 12:16:39 Europe/Berlin] PHP Warning:  include(footer.php): failed to open stream: No such file or directory in C:\Xampp\htdocs\SereneTripsLK\room_details.php on line 434
+[19-Sep-2025 12:16:39 Europe/Berlin] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='C:\Xampp\php\PEAR') in C:\Xampp\htdocs\SereneTripsLK\room_details.php on line 434
+[19-Sep-2025 12:16:39 Europe/Berlin] PHP Warning:  include(header.php): failed to open stream: No such file or directory in C:\Xampp\htdocs\SereneTripsLK\room_details.php on line 307
+[19-Sep-2025 12:16:39 Europe/Berlin] PHP Warning:  include(): Failed opening 'header.php' for inclusion (include_path='C:\Xampp\php\PEAR') in C:\Xampp\htdocs\SereneTripsLK\room_details.php on line 307
+[19-Sep-2025 12:16:39 Europe/Berlin] PHP Warning:  include(footer.php): failed to open stream: No such file or directory in C:\Xampp\htdocs\SereneTripsLK\room_details.php on line 434
+[19-Sep-2025 12:16:39 Europe/Berlin] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='C:\Xampp\php\PEAR') in C:\Xampp\htdocs\SereneTripsLK\room_details.php on line 434
+[19-Sep-2025 12:16:40 Europe/Berlin] PHP Warning:  include(header.php): failed to open stream: No such file or directory in C:\Xampp\htdocs\SereneTripsLK\room_details.php on line 307
+[19-Sep-2025 12:16:40 Europe/Berlin] PHP Warning:  include(): Failed opening 'header.php' for inclusion (include_path='C:\Xampp\php\PEAR') in C:\Xampp\htdocs\SereneTripsLK\room_details.php on line 307
+[19-Sep-2025 12:16:40 Europe/Berlin] PHP Warning:  include(footer.php): failed to open stream: No such file or directory in C:\Xampp\htdocs\SereneTripsLK\room_details.php on line 434
+[19-Sep-2025 12:16:40 Europe/Berlin] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='C:\Xampp\php\PEAR') in C:\Xampp\htdocs\SereneTripsLK\room_details.php on line 434
+[19-Sep-2025 12:16:40 Europe/Berlin] PHP Warning:  include(header.php): failed to open stream: No such file or directory in C:\Xampp\htdocs\SereneTripsLK\room_details.php on line 307
+[19-Sep-2025 12:16:40 Europe/Berlin] PHP Warning:  include(): Failed opening 'header.php' for inclusion (include_path='C:\Xampp\php\PEAR') in C:\Xampp\htdocs\SereneTripsLK\room_details.php on line 307
+[19-Sep-2025 12:16:40 Europe/Berlin] PHP Warning:  include(footer.php): failed to open stream: No such file or directory in C:\Xampp\htdocs\SereneTripsLK\room_details.php on line 434
+[19-Sep-2025 12:16:40 Europe/Berlin] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='C:\Xampp\php\PEAR') in C:\Xampp\htdocs\SereneTripsLK\room_details.php on line 434
+[19-Sep-2025 12:16:41 Europe/Berlin] PHP Warning:  include(header.php): failed to open stream: No such file or directory in C:\Xampp\htdocs\SereneTripsLK\room_details.php on line 307
+[19-Sep-2025 12:16:41 Europe/Berlin] PHP Warning:  include(): Failed opening 'header.php' for inclusion (include_path='C:\Xampp\php\PEAR') in C:\Xampp\htdocs\SereneTripsLK\room_details.php on line 307
+[19-Sep-2025 12:16:41 Europe/Berlin] PHP Warning:  include(footer.php): failed to open stream: No such file or directory in C:\Xampp\htdocs\SereneTripsLK\room_details.php on line 434
+[19-Sep-2025 12:16:41 Europe/Berlin] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='C:\Xampp\php\PEAR') in C:\Xampp\htdocs\SereneTripsLK\room_details.php on line 434
+[19-Sep-2025 12:16:41 Europe/Berlin] PHP Warning:  include(header.php): failed to open stream: No such file or directory in C:\Xampp\htdocs\SereneTripsLK\room_details.php on line 307
+[19-Sep-2025 12:16:41 Europe/Berlin] PHP Warning:  include(): Failed opening 'header.php' for inclusion (include_path='C:\Xampp\php\PEAR') in C:\Xampp\htdocs\SereneTripsLK\room_details.php on line 307
+[19-Sep-2025 12:16:41 Europe/Berlin] PHP Warning:  include(footer.php): failed to open stream: No such file or directory in C:\Xampp\htdocs\SereneTripsLK\room_details.php on line 434
+[19-Sep-2025 12:16:41 Europe/Berlin] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='C:\Xampp\php\PEAR') in C:\Xampp\htdocs\SereneTripsLK\room_details.php on line 434
+[19-Sep-2025 12:16:41 Europe/Berlin] PHP Warning:  include(header.php): failed to open stream: No such file or directory in C:\Xampp\htdocs\SereneTripsLK\room_details.php on line 307
+[19-Sep-2025 12:16:41 Europe/Berlin] PHP Warning:  include(): Failed opening 'header.php' for inclusion (include_path='C:\Xampp\php\PEAR') in C:\Xampp\htdocs\SereneTripsLK\room_details.php on line 307
+[19-Sep-2025 12:16:41 Europe/Berlin] PHP Warning:  include(footer.php): failed to open stream: No such file or directory in C:\Xampp\htdocs\SereneTripsLK\room_details.php on line 434
+[19-Sep-2025 12:16:41 Europe/Berlin] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='C:\Xampp\php\PEAR') in C:\Xampp\htdocs\SereneTripsLK\room_details.php on line 434
+[19-Sep-2025 12:16:42 Europe/Berlin] PHP Warning:  include(header.php): failed to open stream: No such file or directory in C:\Xampp\htdocs\SereneTripsLK\room_details.php on line 307
+[19-Sep-2025 12:16:42 Europe/Berlin] PHP Warning:  include(): Failed opening 'header.php' for inclusion (include_path='C:\Xampp\php\PEAR') in C:\Xampp\htdocs\SereneTripsLK\room_details.php on line 307
+[19-Sep-2025 12:16:42 Europe/Berlin] PHP Warning:  include(footer.php): failed to open stream: No such file or directory in C:\Xampp\htdocs\SereneTripsLK\room_details.php on line 434
+[19-Sep-2025 12:16:42 Europe/Berlin] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='C:\Xampp\php\PEAR') in C:\Xampp\htdocs\SereneTripsLK\room_details.php on line 434
+[19-Sep-2025 12:16:42 Europe/Berlin] PHP Warning:  include(header.php): failed to open stream: No such file or directory in C:\Xampp\htdocs\SereneTripsLK\room_details.php on line 307
+[19-Sep-2025 12:16:42 Europe/Berlin] PHP Warning:  include(): Failed opening 'header.php' for inclusion (include_path='C:\Xampp\php\PEAR') in C:\Xampp\htdocs\SereneTripsLK\room_details.php on line 307
+[19-Sep-2025 12:16:42 Europe/Berlin] PHP Warning:  include(footer.php): failed to open stream: No such file or directory in C:\Xampp\htdocs\SereneTripsLK\room_details.php on line 434
+[19-Sep-2025 12:16:42 Europe/Berlin] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='C:\Xampp\php\PEAR') in C:\Xampp\htdocs\SereneTripsLK\room_details.php on line 434
+[19-Sep-2025 12:16:42 Europe/Berlin] PHP Warning:  include(header.php): failed to open stream: No such file or directory in C:\Xampp\htdocs\SereneTripsLK\room_details.php on line 307
+[19-Sep-2025 12:16:42 Europe/Berlin] PHP Warning:  include(): Failed opening 'header.php' for inclusion (include_path='C:\Xampp\php\PEAR') in C:\Xampp\htdocs\SereneTripsLK\room_details.php on line 307
+[19-Sep-2025 12:16:42 Europe/Berlin] PHP Warning:  include(footer.php): failed to open stream: No such file or directory in C:\Xampp\htdocs\SereneTripsLK\room_details.php on line 434
+[19-Sep-2025 12:16:42 Europe/Berlin] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='C:\Xampp\php\PEAR') in C:\Xampp\htdocs\SereneTripsLK\room_details.php on line 434
+[19-Sep-2025 12:16:42 Europe/Berlin] PHP Warning:  include(header.php): failed to open stream: No such file or directory in C:\Xampp\htdocs\SereneTripsLK\room_details.php on line 307
+[19-Sep-2025 12:16:42 Europe/Berlin] PHP Warning:  include(): Failed opening 'header.php' for inclusion (include_path='C:\Xampp\php\PEAR') in C:\Xampp\htdocs\SereneTripsLK\room_details.php on line 307
+[19-Sep-2025 12:16:42 Europe/Berlin] PHP Warning:  include(footer.php): failed to open stream: No such file or directory in C:\Xampp\htdocs\SereneTripsLK\room_details.php on line 434
+[19-Sep-2025 12:16:42 Europe/Berlin] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='C:\Xampp\php\PEAR') in C:\Xampp\htdocs\SereneTripsLK\room_details.php on line 434
+[19-Sep-2025 12:16:49 Europe/Berlin] PHP Warning:  include(footer.php): failed to open stream: No such file or directory in C:\Xampp\htdocs\SereneTripsLK\room_details.php on line 476
+[19-Sep-2025 12:16:49 Europe/Berlin] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='C:\Xampp\php\PEAR') in C:\Xampp\htdocs\SereneTripsLK\room_details.php on line 476
+[19-Sep-2025 12:16:50 Europe/Berlin] PHP Warning:  include(footer.php): failed to open stream: No such file or directory in C:\Xampp\htdocs\SereneTripsLK\room_details.php on line 476
+[19-Sep-2025 12:16:50 Europe/Berlin] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='C:\Xampp\php\PEAR') in C:\Xampp\htdocs\SereneTripsLK\room_details.php on line 476
+[19-Sep-2025 12:16:50 Europe/Berlin] PHP Warning:  include(footer.php): failed to open stream: No such file or directory in C:\Xampp\htdocs\SereneTripsLK\room_details.php on line 476
+[19-Sep-2025 12:16:50 Europe/Berlin] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='C:\Xampp\php\PEAR') in C:\Xampp\htdocs\SereneTripsLK\room_details.php on line 476
+[19-Sep-2025 12:16:50 Europe/Berlin] PHP Warning:  include(footer.php): failed to open stream: No such file or directory in C:\Xampp\htdocs\SereneTripsLK\room_details.php on line 476
+[19-Sep-2025 12:16:50 Europe/Berlin] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='C:\Xampp\php\PEAR') in C:\Xampp\htdocs\SereneTripsLK\room_details.php on line 476
+[19-Sep-2025 12:29:58 Europe/Berlin] PHP Notice:  Undefined variable: error in C:\Xampp\htdocs\SereneTripsLK\booking.php on line 771
+[19-Sep-2025 12:44:59 Europe/Berlin] PHP Notice:  Undefined variable: error in C:\Xampp\htdocs\SereneTripsLK\booking.php on line 771
+[19-Sep-2025 12:45:18 Europe/Berlin] PHP Notice:  Undefined variable: error in C:\Xampp\htdocs\SereneTripsLK\booking.php on line 771
+[19-Sep-2025 13:37:44 Europe/Berlin] PHP Notice:  Undefined variable: error in C:\Xampp\htdocs\SereneTripsLK\booking.php on line 771
+[19-Sep-2025 13:39:02 Europe/Berlin] PHP Notice:  Undefined variable: error in C:\Xampp\htdocs\SereneTripsLK\booking.php on line 771
+[19-Sep-2025 14:16:08 Europe/Berlin] PHP Notice:  Undefined variable: error in C:\Xampp\htdocs\SereneTripsLK\booking.php on line 771
+[19-Sep-2025 14:38:36 Europe/Berlin] PHP Notice:  Undefined variable: error in C:\Xampp\htdocs\SereneTripsLK\booking.php on line 771
+[19-Sep-2025 15:12:40 Europe/Berlin] PHP Notice:  Undefined variable: error in C:\Xampp\htdocs\SereneTripsLK\booking.php on line 771
+[19-Sep-2025 15:12:53 Europe/Berlin] PHP Notice:  Undefined variable: total_amount in C:\Xampp\htdocs\SereneTripsLK\booking.php on line 129
+[19-Sep-2025 15:12:55 Europe/Berlin] PHP Warning:  mail(): Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() in C:\Xampp\htdocs\SereneTripsLK\email_functions.php on line 224
+[19-Sep-2025 15:12:55 Europe/Berlin] Failed to send email to: roombookingtest1758287434140@example.com
+[19-Sep-2025 15:12:55 Europe/Berlin] Failed to send confirmation email to: roombookingtest1758287434140@example.com
+[19-Sep-2025 15:17:11 Europe/Berlin] PHP Notice:  Undefined variable: error in C:\Xampp\htdocs\SereneTripsLK\booking.php on line 771
+[19-Sep-2025 15:17:24 Europe/Berlin] PHP Notice:  Undefined variable: total_amount in C:\Xampp\htdocs\SereneTripsLK\booking.php on line 129
+[19-Sep-2025 15:17:26 Europe/Berlin] PHP Warning:  mail(): Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() in C:\Xampp\htdocs\SereneTripsLK\email_functions.php on line 224
+[19-Sep-2025 15:17:26 Europe/Berlin] Failed to send email to: roombookingtest1758287705899@example.com
+[19-Sep-2025 15:17:26 Europe/Berlin] Failed to send confirmation email to: roombookingtest1758287705899@example.com
+[19-Sep-2025 15:21:17 Europe/Berlin] PHP Notice:  Undefined variable: error in C:\Xampp\htdocs\SereneTripsLK\booking.php on line 771
+[19-Sep-2025 15:25:34 Europe/Berlin] PHP Notice:  Undefined variable: error in C:\Xampp\htdocs\SereneTripsLK\booking.php on line 771
+[19-Sep-2025 15:25:47 Europe/Berlin] PHP Notice:  Undefined variable: total_amount in C:\Xampp\htdocs\SereneTripsLK\booking.php on line 129
+[19-Sep-2025 15:25:50 Europe/Berlin] PHP Warning:  mail(): Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() in C:\Xampp\htdocs\SereneTripsLK\email_functions.php on line 224
+[19-Sep-2025 15:25:50 Europe/Berlin] Failed to send email to: roombookingtest1758288209167@example.com
+[19-Sep-2025 15:25:50 Europe/Berlin] Failed to send confirmation email to: roombookingtest1758288209167@example.com
+[19-Sep-2025 15:33:14 Europe/Berlin] PHP Notice:  Undefined variable: error in C:\Xampp\htdocs\SereneTripsLK\booking.php on line 771
+[19-Sep-2025 15:45:19 Europe/Berlin] PHP Notice:  Undefined variable: error in C:\Xampp\htdocs\SereneTripsLK\booking.php on line 771
+[19-Sep-2025 15:56:47 Europe/Berlin] PHP Notice:  Undefined variable: error in C:\Xampp\htdocs\SereneTripsLK\booking.php on line 771
