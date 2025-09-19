@@ -163,3 +163,48 @@
 [19-Sep-2025 15:33:14 Europe/Berlin] PHP Notice:  Undefined variable: error in C:\Xampp\htdocs\SereneTripsLK\booking.php on line 771
 [19-Sep-2025 15:45:19 Europe/Berlin] PHP Notice:  Undefined variable: error in C:\Xampp\htdocs\SereneTripsLK\booking.php on line 771
 [19-Sep-2025 15:56:47 Europe/Berlin] PHP Notice:  Undefined variable: error in C:\Xampp\htdocs\SereneTripsLK\booking.php on line 771
+[19-Sep-2025 16:13:12 Europe/Berlin] PHP Notice:  Undefined variable: error in C:\Xampp\htdocs\SereneTripsLK\booking.php on line 771
+[19-Sep-2025 16:13:25 Europe/Berlin] PHP Notice:  Undefined variable: total_amount in C:\Xampp\htdocs\SereneTripsLK\booking.php on line 129
+[19-Sep-2025 16:13:28 Europe/Berlin] PHP Warning:  mail(): Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() in C:\Xampp\htdocs\SereneTripsLK\email_functions.php on line 224
+[19-Sep-2025 16:13:28 Europe/Berlin] Failed to send email to: viewingbookingtest1758291066758@example.com
+[19-Sep-2025 16:13:28 Europe/Berlin] Failed to send confirmation email to: viewingbookingtest1758291066758@example.com
+[19-Sep-2025 16:40:16 Europe/Berlin] PHP Notice:  Undefined variable: error in C:\Xampp\htdocs\SereneTripsLK\booking.php on line 771
+[19-Sep-2025 16:40:29 Europe/Berlin] PHP Notice:  Undefined variable: total_amount in C:\Xampp\htdocs\SereneTripsLK\booking.php on line 129
+[19-Sep-2025 16:40:31 Europe/Berlin] PHP Warning:  mail(): Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() in C:\Xampp\htdocs\SereneTripsLK\email_functions.php on line 224
+[19-Sep-2025 16:40:31 Europe/Berlin] Failed to send email to: viewingbookingtest1758292690555@example.com
+[19-Sep-2025 16:40:31 Europe/Berlin] Failed to send confirmation email to: viewingbookingtest1758292690555@example.com
+[19-Sep-2025 16:51:10 Europe/Berlin] PHP Notice:  Undefined variable: error in C:\Xampp\htdocs\SereneTripsLK\booking.php on line 771
+[19-Sep-2025 16:51:23 Europe/Berlin] PHP Notice:  Undefined variable: total_amount in C:\Xampp\htdocs\SereneTripsLK\booking.php on line 129
+[19-Sep-2025 16:51:25 Europe/Berlin] PHP Warning:  mail(): Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() in C:\Xampp\htdocs\SereneTripsLK\email_functions.php on line 224
+[19-Sep-2025 16:51:25 Europe/Berlin] Failed to send email to: viewingbookingtest1758293407296@example.com
+[19-Sep-2025 16:51:25 Europe/Berlin] Failed to send confirmation email to: viewingbookingtest1758293407296@example.com
+[19-Sep-2025 16:57:43 Europe/Berlin] PHP Notice:  Undefined variable: error in C:\Xampp\htdocs\SereneTripsLK\booking.php on line 771
+[19-Sep-2025 16:57:56 Europe/Berlin] PHP Notice:  Undefined variable: total_amount in C:\Xampp\htdocs\SereneTripsLK\booking.php on line 129
+[19-Sep-2025 16:57:58 Europe/Berlin] PHP Warning:  mail(): Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() in C:\Xampp\htdocs\SereneTripsLK\email_functions.php on line 224
+[19-Sep-2025 16:57:58 Europe/Berlin] Failed to send email to: viewingbookingtest1758293799915@example.com
+[19-Sep-2025 16:57:58 Europe/Berlin] Failed to send confirmation email to: viewingbookingtest1758293799915@example.com
+[19-Sep-2025 17:02:52 Europe/Berlin] PHP Notice:  Undefined variable: error in C:\Xampp\htdocs\SereneTripsLK\booking.php on line 771
+[19-Sep-2025 17:03:05 Europe/Berlin] PHP Notice:  Undefined variable: total_amount in C:\Xampp\htdocs\SereneTripsLK\booking.php on line 129
+[19-Sep-2025 17:03:07 Europe/Berlin] PHP Warning:  mail(): Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() in C:\Xampp\htdocs\SereneTripsLK\email_functions.php on line 224
+[19-Sep-2025 17:03:07 Europe/Berlin] Failed to send email to: viewingbookingtest1758294109741@example.com
+[19-Sep-2025 17:03:07 Europe/Berlin] Failed to send confirmation email to: viewingbookingtest1758294109741@example.com
+[19-Sep-2025 17:08:50 Europe/Berlin] PHP Notice:  Undefined variable: error in C:\Xampp\htdocs\SereneTripsLK\booking.php on line 771
+[19-Sep-2025 17:09:03 Europe/Berlin] PHP Notice:  Undefined variable: total_amount in C:\Xampp\htdocs\SereneTripsLK\booking.php on line 129
+[19-Sep-2025 17:09:05 Europe/Berlin] PHP Warning:  mail(): Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() in C:\Xampp\htdocs\SereneTripsLK\email_functions.php on line 224
+[19-Sep-2025 17:09:05 Europe/Berlin] Failed to send email to: viewingbookingtest1758294464880@example.com
+[19-Sep-2025 17:09:05 Europe/Berlin] Failed to send confirmation email to: viewingbookingtest1758294464880@example.com
+[19-Sep-2025 17:18:49 Europe/Berlin] PHP Notice:  Undefined variable: error in C:\Xampp\htdocs\SereneTripsLK\booking.php on line 771
+[19-Sep-2025 17:19:02 Europe/Berlin] PHP Notice:  Undefined variable: total_amount in C:\Xampp\htdocs\SereneTripsLK\booking.php on line 129
+[19-Sep-2025 17:19:04 Europe/Berlin] PHP Warning:  mail(): Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() in C:\Xampp\htdocs\SereneTripsLK\email_functions.php on line 224
+[19-Sep-2025 17:19:04 Europe/Berlin] Failed to send email to: viewingbookingtest1758295065482@example.com
+[19-Sep-2025 17:19:04 Europe/Berlin] Failed to send confirmation email to: viewingbookingtest1758295065482@example.com
+[19-Sep-2025 17:38:26 Europe/Berlin] PHP Notice:  Undefined variable: error in C:\Xampp\htdocs\SereneTripsLK\booking.php on line 771
+[19-Sep-2025 17:38:39 Europe/Berlin] PHP Notice:  Undefined variable: total_amount in C:\Xampp\htdocs\SereneTripsLK\booking.php on line 129
+[19-Sep-2025 17:38:41 Europe/Berlin] PHP Warning:  mail(): Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() in C:\Xampp\htdocs\SereneTripsLK\email_functions.php on line 224
+[19-Sep-2025 17:38:41 Europe/Berlin] Failed to send email to: viewingbookingtest1758296242820@example.com
+[19-Sep-2025 17:38:41 Europe/Berlin] Failed to send confirmation email to: viewingbookingtest1758296242820@example.com
+[19-Sep-2025 19:34:51 Europe/Berlin] PHP Notice:  Undefined variable: error in C:\Xampp\htdocs\SereneTripsLK\booking.php on line 771
+[19-Sep-2025 19:35:04 Europe/Berlin] PHP Notice:  Undefined variable: total_amount in C:\Xampp\htdocs\SereneTripsLK\booking.php on line 129
+[19-Sep-2025 19:35:07 Europe/Berlin] PHP Warning:  mail(): Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() in C:\Xampp\htdocs\SereneTripsLK\email_functions.php on line 224
+[19-Sep-2025 19:35:07 Europe/Berlin] Failed to send email to: roombookingtest1758303164243@example.com
+[19-Sep-2025 19:35:07 Europe/Berlin] Failed to send confirmation email to: roombookingtest1758303164243@example.com

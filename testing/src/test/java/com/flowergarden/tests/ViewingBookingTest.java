@@ -3,6 +3,8 @@ package com.flowergarden.tests;
 import com.flowergarden.utils.PageObjectHelper;
 import com.flowergarden.utils.TestBase;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.JavascriptExecutor;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -61,6 +63,11 @@ public class ViewingBookingTest extends TestBase {
     private static final By MY_RESERVATIONS_LINK = By.xpath("//a[contains(text(), 'My Reservations')] | //a[contains(text(), 'My Bookings')] | //a[contains(text(), 'View Bookings')]");
     private static final By RESERVATION_LIST = By.xpath("//div[contains(@class, 'reservation')] | //div[contains(@class, 'booking')] | //table[contains(@class, 'reservations')]");
     private static final By RESERVATION_DETAILS = By.xpath("//div[contains(@class, 'reservation-details')] | //div[contains(@class, 'booking-details')]");
+    
+    // User menu locators
+    private static final By USERNAME_LINK = By.xpath("//a[contains(@class, 'user')] | //span[contains(@class, 'user')] | //div[contains(@class, 'user')] | //*[contains(text(), 'Test')] | //*[contains(text(), 'User')]");
+    private static final By USER_MENU = By.xpath("//div[contains(@class, 'dropdown')] | //div[contains(@class, 'menu')] | //ul[contains(@class, 'dropdown')]");
+    private static final By USER_DROPDOWN = By.xpath("//div[contains(@class, 'user-dropdown')] | //div[contains(@class, 'profile-menu')]");
     
     /**
      * Generate a unique email for testing
@@ -203,10 +210,10 @@ public class ViewingBookingTest extends TestBase {
             searchForHotels();
             System.out.println("✅ Hotel search completed");
             
-            // STEP 10: VIEW BOOKING DETAILS
-            System.out.println("📍 Step 10: Viewing booking details...");
-            viewBookingDetails();
-            System.out.println("✅ Booking viewing completed");
+            // STEP 10: VIEW BOOKING DETAILS VIA USER MENU
+            System.out.println("📍 Step 10: Viewing booking details via user menu...");
+            viewBookingDetailsViaUserMenu();
+            System.out.println("✅ Booking viewing via user menu completed");
             
             System.out.println("🎉 Complete booking and viewing test completed!");
             
@@ -506,29 +513,66 @@ public class ViewingBookingTest extends TestBase {
             // Try to find and click Book Now button
             boolean bookNowClicked = false;
             
-            if (helper.isElementDisplayed(BOOK_NOW_BTN)) {
+            // Try href locator first (fastest)
+            By bookHrefLocator = By.xpath("//a[contains(@href, 'book')]");
+            if (helper.isElementDisplayed(bookHrefLocator)) {
+                System.out.println("    🚀 Clicking book href link (fastest method)...");
+                try {
+                    // Try JavaScript click first to bypass click interception
+                    WebElement element = driver.findElement(bookHrefLocator);
+                    ((org.openqa.selenium.JavascriptExecutor) driver)
+                        .executeScript("arguments[0].click();", element);
+                    bookNowClicked = true;
+                    System.out.println("    ✅ Book href link clicked with JavaScript");
+                } catch (Exception e) {
+                    System.out.println("    ⚠️ JavaScript click failed, trying regular click...");
+                    try {
+                        helper.clickElement(bookHrefLocator);
+                        bookNowClicked = true;
+                        System.out.println("    ✅ Book href link clicked successfully");
+                    } catch (Exception e2) {
+                        System.out.println("    ⚠️ Regular click failed, trying force click...");
+                        try {
+                            helper.forceClickElement(bookHrefLocator);
+                            bookNowClicked = true;
+                            System.out.println("    ✅ Book href link clicked with force click");
+                        } catch (Exception e3) {
+                            System.out.println("    ❌ All book href click methods failed: " + e3.getMessage());
+                        }
+                    }
+                }
+            } else if (helper.isElementDisplayed(BOOK_NOW_BTN)) {
                 System.out.println("    🚀 Clicking Book Now button...");
                 try {
-                    helper.clickElement(BOOK_NOW_BTN);
+                    // Try JavaScript click first to bypass click interception
+                    WebElement element = driver.findElement(BOOK_NOW_BTN);
+                    ((org.openqa.selenium.JavascriptExecutor) driver)
+                        .executeScript("arguments[0].click();", element);
                     bookNowClicked = true;
-                    System.out.println("    ✅ Book Now button clicked successfully");
+                    System.out.println("    ✅ Book Now button clicked with JavaScript");
                 } catch (Exception e) {
-                    System.out.println("    ⚠️ Regular click failed, trying JavaScript click...");
+                    System.out.println("    ⚠️ JavaScript click failed, trying regular click...");
                     try {
-                        helper.forceClickElement(BOOK_NOW_BTN);
+                        helper.clickElement(BOOK_NOW_BTN);
                         bookNowClicked = true;
-                        System.out.println("    ✅ Book Now button clicked with JavaScript");
+                        System.out.println("    ✅ Book Now button clicked successfully");
                     } catch (Exception e2) {
-                        System.out.println("    ❌ JavaScript click also failed: " + e2.getMessage());
+                        System.out.println("    ⚠️ Regular click failed, trying force click...");
+                        try {
+                            helper.forceClickElement(BOOK_NOW_BTN);
+                            bookNowClicked = true;
+                            System.out.println("    ✅ Book Now button clicked with force click");
+                        } catch (Exception e3) {
+                            System.out.println("    ❌ All Book Now click methods failed: " + e3.getMessage());
+                        }
                     }
                 }
             } else {
-                System.out.println("    ❌ Book Now button not found");
+                System.out.println("    ❌ Book Now button and href not found, trying other alternatives...");
                 // Try alternative locators
                 By[] altBookButtons = {
                     By.xpath("//a[contains(text(), 'Book')]"),
                     By.xpath("//button[contains(text(), 'Book')]"),
-                    By.xpath("//a[contains(@href, 'book')]"),
                     By.xpath("//button[contains(@class, 'book')]")
                 };
                 
@@ -536,12 +580,23 @@ public class ViewingBookingTest extends TestBase {
                     if (helper.isElementDisplayed(altButton)) {
                         System.out.println("    🔄 Trying alternative book button: " + altButton);
                         try {
-                            helper.clickElement(altButton);
+                            // Try JavaScript click first
+                            WebElement element = driver.findElement(altButton);
+                            ((org.openqa.selenium.JavascriptExecutor) driver)
+                                .executeScript("arguments[0].click();", element);
                             bookNowClicked = true;
-                            System.out.println("    ✅ Alternative book button clicked");
+                            System.out.println("    ✅ Alternative book button clicked with JavaScript");
                             break;
                         } catch (Exception e) {
-                            System.out.println("    ⚠️ Alternative button click failed: " + e.getMessage());
+                            System.out.println("    ⚠️ JavaScript click failed, trying regular click...");
+                            try {
+                                helper.clickElement(altButton);
+                                bookNowClicked = true;
+                                System.out.println("    ✅ Alternative book button clicked");
+                                break;
+                            } catch (Exception e2) {
+                                System.out.println("    ⚠️ Alternative button click failed: " + e2.getMessage());
+                            }
                         }
                     }
                 }
@@ -692,10 +747,6 @@ public class ViewingBookingTest extends TestBase {
             System.out.println("      ⏳ Waiting for booking processing...");
             helper.longDelay();
             
-            // Handle "Save Card" popup if it appears
-            System.out.println("      🔍 Checking for save card popup...");
-            handleSaveCardPopup();
-            
         } catch (Exception e) {
             System.out.println("      ❌ Booking submission failed: " + e.getMessage());
             Assert.fail("Booking submission failed: " + e.getMessage());
@@ -748,123 +799,102 @@ public class ViewingBookingTest extends TestBase {
         }
     }
     
-    /**
-     * Handle "Save Card" popup that appears after payment
-     */
-    private void handleSaveCardPopup() {
-        try {
-            // Common locators for save card popup
-            By[] saveCardPopupLocators = {
-                By.xpath("//div[contains(@class, 'modal') and contains(text(), 'save')]"),
-                By.xpath("//div[contains(@class, 'popup') and contains(text(), 'card')]"),
-                By.xpath("//div[contains(@class, 'dialog') and contains(text(), 'save')]"),
-                By.xpath("//*[contains(text(), 'Save card')]"),
-                By.xpath("//*[contains(text(), 'Save this card')]"),
-                By.xpath("//*[contains(text(), 'Remember card')]"),
-                By.xpath("//*[contains(text(), 'Store card')]"),
-                By.xpath("//button[contains(text(), 'Save')]"),
-                By.xpath("//button[contains(text(), 'Don\\'t save')]"),
-                By.xpath("//button[contains(text(), 'Cancel')]"),
-                By.xpath("//button[contains(text(), 'No')]"),
-                By.xpath("//button[contains(text(), 'Skip')]"),
-                By.xpath("//button[contains(@class, 'close')]"),
-                By.xpath("//button[contains(@class, 'cancel')]"),
-                By.xpath("//span[contains(@class, 'close')]"),
-                By.xpath("//*[@aria-label='Close']"),
-                By.xpath("//*[@aria-label='Cancel']")
-            };
-            
-            // Wait a bit for popup to appear
-            helper.shortDelay();
-            
-            // Check for popup and try to dismiss it
-            boolean popupHandled = false;
-            
-            for (By locator : saveCardPopupLocators) {
-                try {
-                    if (helper.isElementDisplayed(locator)) {
-                        System.out.println("        🎯 Found save card popup element: " + locator);
-                        
-                        // Try to click the dismiss button
-                        try {
-                            helper.clickElement(locator);
-                            System.out.println("        ✅ Successfully dismissed save card popup");
-                            popupHandled = true;
-                            helper.shortDelay();
-                            break;
-                        } catch (Exception e) {
-                            System.out.println("        ⚠️ Regular click failed, trying JavaScript click...");
-                            try {
-                                helper.forceClickElement(locator);
-                                System.out.println("        ✅ Successfully dismissed popup with JavaScript");
-                                popupHandled = true;
-                                helper.shortDelay();
-                                break;
-                            } catch (Exception e2) {
-                                System.out.println("        ❌ JavaScript click also failed: " + e2.getMessage());
-                            }
-                        }
-                    }
-                } catch (Exception e) {
-                    // Continue to next locator
-                }
-            }
-            
-            // If popup wasn't found with specific locators, try generic modal dismissal
-            if (!popupHandled) {
-                System.out.println("        🔄 Trying generic modal dismissal...");
-                
-                // Try pressing Escape key
-                try {
-                    ((org.openqa.selenium.JavascriptExecutor) driver)
-                        .executeScript("document.dispatchEvent(new KeyboardEvent('keydown', {key: 'Escape', keyCode: 27}));");
-                    System.out.println("        ✅ Pressed Escape key to dismiss popup");
-                    popupHandled = true;
-                    helper.shortDelay();
-                } catch (Exception e) {
-                    System.out.println("        ⚠️ Escape key failed: " + e.getMessage());
-                }
-                
-                // Try clicking outside the modal
-                if (!popupHandled) {
-                    try {
-                        ((org.openqa.selenium.JavascriptExecutor) driver)
-                            .executeScript("document.querySelector('body').click();");
-                        System.out.println("        ✅ Clicked outside modal to dismiss");
-                        popupHandled = true;
-                        helper.shortDelay();
-                    } catch (Exception e) {
-                        System.out.println("        ⚠️ Outside click failed: " + e.getMessage());
-                    }
-                }
-            }
-            
-            if (popupHandled) {
-                System.out.println("        🎉 Save card popup successfully dismissed");
-            } else {
-                System.out.println("        ℹ️ No save card popup found or already dismissed");
-            }
-            
-        } catch (Exception e) {
-            System.out.println("        ⚠️ Error handling save card popup: " + e.getMessage());
-            // Don't fail the test if popup handling fails
-        }
-    }
     
     /**
-     * View booking details after successful booking
+     * View booking details via user menu after successful booking
      */
-    private void viewBookingDetails() {
+    private void viewBookingDetailsViaUserMenu() {
         try {
-            System.out.println("  📋 Starting to view booking details...");
+            System.out.println("  📋 Starting to view booking details via user menu...");
             
             // Navigate to homepage first
             System.out.println("  🌐 Navigating to homepage...");
             driver.get(baseUrl);
             helper.mediumDelay();
             
-            // Look for "My Reservations" or similar link
-            System.out.println("  🔍 Looking for My Reservations link...");
+            // Look for username or user menu
+            System.out.println("  🔍 Looking for username/user menu...");
+            boolean userMenuClicked = false;
+            
+            // Try avatar locator first (fastest)
+            By avatarLocator = By.xpath("//*[contains(@class, 'avatar')]");
+            if (helper.isElementDisplayed(avatarLocator)) {
+                System.out.println("  🚀 Clicking avatar (fastest method)...");
+                try {
+                    // Try JavaScript click first to bypass click interception
+                    WebElement element = driver.findElement(avatarLocator);
+                    ((org.openqa.selenium.JavascriptExecutor) driver)
+                        .executeScript("arguments[0].click();", element);
+                    userMenuClicked = true;
+                    System.out.println("  ✅ Avatar clicked with JavaScript");
+                } catch (Exception e) {
+                    System.out.println("  ⚠️ JavaScript click failed, trying regular click...");
+                    try {
+                        helper.clickElement(avatarLocator);
+                        userMenuClicked = true;
+                        System.out.println("  ✅ Avatar clicked successfully");
+                    } catch (Exception e2) {
+                        System.out.println("  ⚠️ Regular click failed, trying force click...");
+                        try {
+                            helper.forceClickElement(avatarLocator);
+                            userMenuClicked = true;
+                            System.out.println("  ✅ Avatar clicked with force click");
+                        } catch (Exception e3) {
+                            System.out.println("  ❌ All avatar click methods failed: " + e3.getMessage());
+                        }
+                    }
+                }
+            } else {
+                System.out.println("  ❌ Avatar not found, trying other user locators...");
+                // Try alternative locators for user menu
+                By[] altUserLocators = {
+                    By.xpath("//img[contains(@class, 'avatar')]"),
+                    By.xpath("//a[contains(@class, 'profile')]"),
+                    By.xpath("//div[contains(@class, 'profile')]"),
+                    By.xpath("//span[contains(@class, 'profile')]"),
+                    By.xpath("//*[contains(text(), 'Profile')]"),
+                    By.xpath("//*[contains(text(), 'Account')]"),
+                    By.xpath("//*[contains(text(), 'Dashboard')]"),
+                    USERNAME_LINK
+                };
+                
+                for (By altLocator : altUserLocators) {
+                    if (helper.isElementDisplayed(altLocator)) {
+                        System.out.println("  🔄 Trying alternative user locator: " + altLocator);
+                        try {
+                            // Try JavaScript click first
+                            WebElement element = driver.findElement(altLocator);
+                            ((org.openqa.selenium.JavascriptExecutor) driver)
+                                .executeScript("arguments[0].click();", element);
+                            userMenuClicked = true;
+                            System.out.println("  ✅ Alternative user locator clicked with JavaScript");
+                            break;
+                        } catch (Exception e) {
+                            System.out.println("  ⚠️ JavaScript click failed, trying regular click...");
+                            try {
+                                helper.clickElement(altLocator);
+                                userMenuClicked = true;
+                                System.out.println("  ✅ Alternative user locator clicked");
+                                break;
+                            } catch (Exception e2) {
+                                System.out.println("  ⚠️ Alternative locator click failed: " + e2.getMessage());
+                            }
+                        }
+                    }
+                }
+            }
+            
+            if (!userMenuClicked) {
+                System.out.println("  ❌ Could not find or click user menu");
+                Assert.fail("Could not access user menu");
+            }
+            
+            // Wait for user menu to appear
+            System.out.println("  ⏳ Waiting for user menu to appear...");
+            helper.mediumDelay();
+            
+            // Look for "My Reservations" in the dropdown menu
+            System.out.println("  🔍 Looking for My Reservations in user menu...");
             boolean reservationsLinkFound = false;
             
             if (helper.isElementDisplayed(MY_RESERVATIONS_LINK)) {
@@ -884,7 +914,7 @@ public class ViewingBookingTest extends TestBase {
                     }
                 }
             } else {
-                System.out.println("  ❌ My Reservations link not found");
+                System.out.println("  ❌ My Reservations link not found in user menu");
                 // Try alternative locators
                 By[] altReservationLinks = {
                     By.xpath("//a[contains(text(), 'Reservations')]"),
@@ -893,7 +923,9 @@ public class ViewingBookingTest extends TestBase {
                     By.xpath("//a[contains(text(), 'View Bookings')]"),
                     By.xpath("//a[contains(@href, 'reservation')]"),
                     By.xpath("//a[contains(@href, 'booking')]"),
-                    By.xpath("//a[contains(@href, 'my')]")
+                    By.xpath("//a[contains(@href, 'my')]"),
+                    By.xpath("//li[contains(text(), 'Reservations')]"),
+                    By.xpath("//li[contains(text(), 'Bookings')]")
                 };
                 
                 for (By altLink : altReservationLinks) {
@@ -912,8 +944,8 @@ public class ViewingBookingTest extends TestBase {
             }
             
             if (!reservationsLinkFound) {
-                System.out.println("  ❌ Could not find any reservations link");
-                Assert.fail("Could not navigate to reservations page");
+                System.out.println("  ❌ Could not find any reservations link in user menu");
+                Assert.fail("Could not navigate to reservations page via user menu");
             }
             
             // Wait for reservations page to load
@@ -934,16 +966,16 @@ public class ViewingBookingTest extends TestBase {
                 Assert.fail("Did not navigate to reservations page");
             }
             
-            System.out.println("  ✅ Successfully navigated to reservations page");
+            System.out.println("  ✅ Successfully navigated to reservations page via user menu");
             
             // Display reservation details
             System.out.println("  📋 Displaying reservation details...");
             displayReservationDetails();
             
         } catch (Exception e) {
-            System.out.println("  ❌ Viewing booking details failed: " + e.getMessage());
+            System.out.println("  ❌ Viewing booking details via user menu failed: " + e.getMessage());
             e.printStackTrace();
-            Assert.fail("Viewing booking details failed: " + e.getMessage());
+            Assert.fail("Viewing booking details via user menu failed: " + e.getMessage());
         }
     }
     

@@ -9,10 +9,10 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 /**
- * RoomBookingTest - Test room booking functionality
- * Flow: Register Account → Login → Test Room Booking
+ * CancelBookingTest - Test booking cancellation functionality
+ * Flow: Register Account → Login → Search Hotel → Book Room → Cancel Booking
  */
-public class RoomBookingTest extends TestBase {
+public class CancelBookingTest extends TestBase {
     
     private PageObjectHelper helper;
     
@@ -59,20 +59,35 @@ public class RoomBookingTest extends TestBase {
     private static final By BOOKING_CONFIRMATION = By.xpath("//div[contains(@class, 'booking-confirmation')] | //h1[contains(text(), 'Booking Confirmation')] | //h2[contains(text(), 'Booking Confirmation')]");
     private static final By BOOKING_SUCCESS = By.xpath("//div[contains(@class, 'success')] | //div[contains(@class, 'alert-success')] | //*[contains(text(), 'successfully')]");
     
+    // View booking locators
+    private static final By MY_RESERVATIONS_LINK = By.xpath("//a[contains(text(), 'My Reservations')] | //a[contains(text(), 'My Bookings')] | //a[contains(text(), 'View Bookings')]");
+    private static final By RESERVATION_LIST = By.xpath("//div[contains(@class, 'reservation')] | //div[contains(@class, 'booking')] | //table[contains(@class, 'reservations')]");
+    private static final By RESERVATION_DETAILS = By.xpath("//div[contains(@class, 'reservation-details')] | //div[contains(@class, 'booking-details')]");
+    
+    // User menu locators
+    private static final By USERNAME_LINK = By.xpath("//a[contains(@class, 'user')] | //span[contains(@class, 'user')] | //div[contains(@class, 'user')] | //*[contains(text(), 'Test')] | //*[contains(text(), 'User')]");
+    private static final By USER_MENU = By.xpath("//div[contains(@class, 'dropdown')] | //div[contains(@class, 'menu')] | //ul[contains(@class, 'dropdown')]");
+    private static final By USER_DROPDOWN = By.xpath("//div[contains(@class, 'user-dropdown')] | //div[contains(@class, 'profile-menu')]");
+    
+    // Cancellation locators
+    private static final By CANCEL_BUTTON = By.xpath("//button[contains(text(), 'Cancel')] | //a[contains(text(), 'Cancel')] | //button[contains(@class, 'cancel')]");
+    private static final By CONFIRM_CANCEL_BTN = By.xpath("//button[contains(text(), 'Confirm')] | //button[contains(text(), 'Yes')] | //button[contains(text(), 'Cancel Booking')]");
+    private static final By CANCELLATION_SUCCESS = By.xpath("//div[contains(@class, 'success')] | //div[contains(@class, 'alert-success')] | //*[contains(text(), 'cancelled')] | //*[contains(text(), 'canceled')]");
+    
     /**
      * Generate a unique email for testing
      */
     private String generateUniqueEmail() {
         String timestamp = String.valueOf(System.currentTimeMillis());
-        return "roombookingtest" + timestamp + "@example.com";
+        return "cancelbookingtest" + timestamp + "@example.com";
     }
     
-    @Test(description = "Test successful user login with valid credentials")
-    public void testSuccessfulUserLogin() {
+    @Test(description = "Test complete booking flow and cancellation")
+    public void testCompleteBookingAndCancellation() {
         helper = new PageObjectHelper(driver);
         
         try {
-            System.out.println("🚀 Starting successful user login test...");
+            System.out.println("🚀 Starting complete booking and cancellation test...");
             
             // Navigate to login page
             System.out.println("📍 Step 1: Navigating to login page...");
@@ -200,12 +215,22 @@ public class RoomBookingTest extends TestBase {
             searchForHotels();
             System.out.println("✅ Hotel search completed");
             
-            System.out.println("🎉 Complete room booking test completed!");
+            // STEP 10: BOOK ROOM
+            System.out.println("📍 Step 10: Booking room...");
+            completeRoomBooking();
+            System.out.println("✅ Room booking completed");
+            
+            // STEP 11: CANCEL BOOKING
+            System.out.println("📍 Step 11: Cancelling booking...");
+            cancelBooking();
+            System.out.println("✅ Booking cancellation completed");
+            
+            System.out.println("🎉 Complete booking and cancellation test completed!");
             
         } catch (Exception e) {
-            System.out.println("❌ Room booking test failed: " + e.getMessage());
+            System.out.println("❌ Booking and cancellation test failed: " + e.getMessage());
             helper.mediumDelay();
-            Assert.fail("Room booking test failed: " + e.getMessage());
+            Assert.fail("Booking and cancellation test failed: " + e.getMessage());
         }
     }
     
@@ -255,7 +280,7 @@ public class RoomBookingTest extends TestBase {
             // Try multiple methods to submit the search
             boolean searchSubmitted = false;
             
-            // Method 1: Try smart form submit
+            // Method 1: Try smart form submit with enhanced error handling
             try {
                 searchSubmitted = helper.smartFormSubmit(SEARCH_BTN);
                 if (searchSubmitted) {
@@ -472,7 +497,35 @@ public class RoomBookingTest extends TestBase {
             // Try to find and click Book Now button
             boolean bookNowClicked = false;
             
-            if (helper.isElementDisplayed(BOOK_NOW_BTN)) {
+            // Try href locator first (fastest)
+            By bookHrefLocator = By.xpath("//a[contains(@href, 'book')]");
+            if (helper.isElementDisplayed(bookHrefLocator)) {
+                System.out.println("    🚀 Clicking book href link (fastest method)...");
+                try {
+                    // Try JavaScript click first to bypass click interception
+                    WebElement element = driver.findElement(bookHrefLocator);
+                    ((org.openqa.selenium.JavascriptExecutor) driver)
+                        .executeScript("arguments[0].click();", element);
+                    bookNowClicked = true;
+                    System.out.println("    ✅ Book href link clicked with JavaScript");
+                } catch (Exception e) {
+                    System.out.println("    ⚠️ JavaScript click failed, trying regular click...");
+                    try {
+                        helper.clickElement(bookHrefLocator);
+                        bookNowClicked = true;
+                        System.out.println("    ✅ Book href link clicked successfully");
+                    } catch (Exception e2) {
+                        System.out.println("    ⚠️ Regular click failed, trying force click...");
+                        try {
+                            helper.forceClickElement(bookHrefLocator);
+                            bookNowClicked = true;
+                            System.out.println("    ✅ Book href link clicked with force click");
+                        } catch (Exception e3) {
+                            System.out.println("    ❌ All book href click methods failed: " + e3.getMessage());
+                        }
+                    }
+                }
+            } else if (helper.isElementDisplayed(BOOK_NOW_BTN)) {
                 System.out.println("    🚀 Clicking Book Now button...");
                 try {
                     // Try JavaScript click first to bypass click interception
@@ -494,17 +547,16 @@ public class RoomBookingTest extends TestBase {
                             bookNowClicked = true;
                             System.out.println("    ✅ Book Now button clicked with force click");
                         } catch (Exception e3) {
-                            System.out.println("    ❌ All click methods failed: " + e3.getMessage());
+                            System.out.println("    ❌ All Book Now click methods failed: " + e3.getMessage());
                         }
                     }
                 }
             } else {
-                System.out.println("    ❌ Book Now button not found");
+                System.out.println("    ❌ Book Now button and href not found, trying other alternatives...");
                 // Try alternative locators
                 By[] altBookButtons = {
                     By.xpath("//a[contains(text(), 'Book')]"),
                     By.xpath("//button[contains(text(), 'Book')]"),
-                    By.xpath("//a[contains(@href, 'book')]"),
                     By.xpath("//button[contains(@class, 'book')]")
                 };
                 
@@ -512,7 +564,7 @@ public class RoomBookingTest extends TestBase {
                     if (helper.isElementDisplayed(altButton)) {
                         System.out.println("    🔄 Trying alternative book button: " + altButton);
                         try {
-                            // Try JavaScript click first to bypass click interception
+                            // Try JavaScript click first
                             WebElement element = driver.findElement(altButton);
                             ((org.openqa.selenium.JavascriptExecutor) driver)
                                 .executeScript("arguments[0].click();", element);
@@ -731,4 +783,210 @@ public class RoomBookingTest extends TestBase {
         }
     }
     
+    /**
+     * Cancel the booking after successful booking
+     */
+    private void cancelBooking() {
+        try {
+            System.out.println("  📋 Starting to cancel booking...");
+            
+            // Navigate to homepage first
+            System.out.println("  🌐 Navigating to homepage...");
+            driver.get(baseUrl);
+            helper.mediumDelay();
+            
+            // Look for avatar locator first (fastest)
+            By avatarLocator = By.xpath("//*[contains(@class, 'avatar')]");
+            if (helper.isElementDisplayed(avatarLocator)) {
+                System.out.println("  🚀 Clicking avatar (fastest method)...");
+                try {
+                    // Try JavaScript click first to bypass click interception
+                    WebElement element = driver.findElement(avatarLocator);
+                    ((org.openqa.selenium.JavascriptExecutor) driver)
+                        .executeScript("arguments[0].click();", element);
+                    System.out.println("  ✅ Avatar clicked with JavaScript");
+                } catch (Exception e) {
+                    System.out.println("  ⚠️ JavaScript click failed, trying regular click...");
+                    try {
+                        helper.clickElement(avatarLocator);
+                        System.out.println("  ✅ Avatar clicked successfully");
+                    } catch (Exception e2) {
+                        System.out.println("  ⚠️ Regular click failed, trying force click...");
+                        try {
+                            helper.forceClickElement(avatarLocator);
+                            System.out.println("  ✅ Avatar clicked with force click");
+                        } catch (Exception e3) {
+                            System.out.println("  ❌ All avatar click methods failed: " + e3.getMessage());
+                        }
+                    }
+                }
+            }
+            
+            // Wait for user menu to appear
+            System.out.println("  ⏳ Waiting for user menu to appear...");
+            helper.mediumDelay();
+            
+            // Look for "My Reservations" in the dropdown menu
+            System.out.println("  🔍 Looking for My Reservations in user menu...");
+            boolean reservationsLinkFound = false;
+            
+            if (helper.isElementDisplayed(MY_RESERVATIONS_LINK)) {
+                System.out.println("  🚀 Clicking My Reservations link...");
+                try {
+                    helper.clickElement(MY_RESERVATIONS_LINK);
+                    reservationsLinkFound = true;
+                    System.out.println("  ✅ My Reservations link clicked successfully");
+                } catch (Exception e) {
+                    System.out.println("  ⚠️ Regular click failed, trying JavaScript click...");
+                    try {
+                        helper.forceClickElement(MY_RESERVATIONS_LINK);
+                        reservationsLinkFound = true;
+                        System.out.println("  ✅ My Reservations link clicked with JavaScript");
+                    } catch (Exception e2) {
+                        System.out.println("  ❌ JavaScript click also failed: " + e2.getMessage());
+                    }
+                }
+            }
+            
+            if (!reservationsLinkFound) {
+                System.out.println("  ❌ Could not find My Reservations link");
+                Assert.fail("Could not navigate to reservations page");
+            }
+            
+            // Wait for reservations page to load
+            System.out.println("  ⏳ Waiting for reservations page to load...");
+            helper.longDelay();
+            
+            // Look for cancel button
+            System.out.println("  🔍 Looking for cancel button...");
+            boolean cancelClicked = false;
+            
+            if (helper.isElementDisplayed(CANCEL_BUTTON)) {
+                System.out.println("  🚀 Clicking cancel button...");
+                try {
+                    // Try JavaScript click first to bypass click interception
+                    WebElement element = driver.findElement(CANCEL_BUTTON);
+                    ((org.openqa.selenium.JavascriptExecutor) driver)
+                        .executeScript("arguments[0].click();", element);
+                    cancelClicked = true;
+                    System.out.println("  ✅ Cancel button clicked with JavaScript");
+                } catch (Exception e) {
+                    System.out.println("  ⚠️ JavaScript click failed, trying regular click...");
+                    try {
+                        helper.clickElement(CANCEL_BUTTON);
+                        cancelClicked = true;
+                        System.out.println("  ✅ Cancel button clicked successfully");
+                    } catch (Exception e2) {
+                        System.out.println("  ⚠️ Regular click failed, trying force click...");
+                        try {
+                            helper.forceClickElement(CANCEL_BUTTON);
+                            cancelClicked = true;
+                            System.out.println("  ✅ Cancel button clicked with force click");
+                        } catch (Exception e3) {
+                            System.out.println("  ❌ All cancel click methods failed: " + e3.getMessage());
+                        }
+                    }
+                }
+            }
+            
+            if (!cancelClicked) {
+                System.out.println("  ❌ Could not find or click cancel button");
+                Assert.fail("Could not cancel booking");
+            }
+            
+            // Wait for confirmation dialog
+            System.out.println("  ⏳ Waiting for cancellation confirmation...");
+            helper.mediumDelay();
+            
+            // Confirm cancellation
+            System.out.println("  🔍 Looking for confirm cancellation button...");
+            boolean confirmClicked = false;
+            
+            if (helper.isElementDisplayed(CONFIRM_CANCEL_BTN)) {
+                System.out.println("  🚀 Clicking confirm cancellation button...");
+                try {
+                    // Try JavaScript click first to bypass click interception
+                    WebElement element = driver.findElement(CONFIRM_CANCEL_BTN);
+                    ((org.openqa.selenium.JavascriptExecutor) driver)
+                        .executeScript("arguments[0].click();", element);
+                    confirmClicked = true;
+                    System.out.println("  ✅ Confirm cancellation button clicked with JavaScript");
+                } catch (Exception e) {
+                    System.out.println("  ⚠️ JavaScript click failed, trying regular click...");
+                    try {
+                        helper.clickElement(CONFIRM_CANCEL_BTN);
+                        confirmClicked = true;
+                        System.out.println("  ✅ Confirm cancellation button clicked successfully");
+                    } catch (Exception e2) {
+                        System.out.println("  ⚠️ Regular click failed, trying force click...");
+                        try {
+                            helper.forceClickElement(CONFIRM_CANCEL_BTN);
+                            confirmClicked = true;
+                            System.out.println("  ✅ Confirm cancellation button clicked with force click");
+                        } catch (Exception e3) {
+                            System.out.println("  ❌ All confirm click methods failed: " + e3.getMessage());
+                        }
+                    }
+                }
+            }
+            
+            if (!confirmClicked) {
+                System.out.println("  ❌ Could not find or click confirm cancellation button");
+                Assert.fail("Could not confirm cancellation");
+            }
+            
+            // Wait for cancellation processing
+            System.out.println("  ⏳ Waiting for cancellation processing...");
+            helper.longDelay();
+            
+            // Verify cancellation success
+            System.out.println("  ✅ Verifying cancellation success...");
+            verifyCancellationSuccess();
+            
+        } catch (Exception e) {
+            System.out.println("  ❌ Cancellation process failed: " + e.getMessage());
+            e.printStackTrace();
+            Assert.fail("Cancellation process failed: " + e.getMessage());
+        }
+    }
+    
+    /**
+     * Verify cancellation success
+     */
+    private void verifyCancellationSuccess() {
+        try {
+            String currentUrl = driver.getCurrentUrl();
+            System.out.println("      📍 Final URL: " + currentUrl);
+            
+            // Check for cancellation success
+            boolean cancellationSuccess = helper.isElementDisplayed(CANCELLATION_SUCCESS) ||
+                                       currentUrl.contains("cancelled") ||
+                                       currentUrl.contains("canceled");
+            
+            if (cancellationSuccess) {
+                System.out.println("      🎉 Booking cancelled successfully!");
+                
+                // Try to display cancellation details
+                if (helper.isElementDisplayed(CANCELLATION_SUCCESS)) {
+                    String successText = helper.getTextFromElement(CANCELLATION_SUCCESS);
+                    System.out.println("      ✅ Success message: " + successText);
+                }
+                
+            } else {
+                System.out.println("      ❌ Cancellation confirmation not found");
+                // Check for error messages
+                if (helper.isElementDisplayed(ERROR_MESSAGE)) {
+                    String errorText = helper.getTextFromElement(ERROR_MESSAGE);
+                    System.out.println("      ❌ Error: " + errorText);
+                    Assert.fail("Cancellation failed with error: " + errorText);
+                } else {
+                    Assert.fail("Cancellation completion could not be verified");
+                }
+            }
+            
+        } catch (Exception e) {
+            System.out.println("      ❌ Cancellation verification failed: " + e.getMessage());
+            Assert.fail("Cancellation verification failed: " + e.getMessage());
+        }
+    }
 }
