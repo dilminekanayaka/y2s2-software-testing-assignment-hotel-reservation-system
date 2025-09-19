@@ -66,3 +66,6 @@
 [18-Sep-2025 06:40:02 Europe/Berlin] PHP Notice:  session_start(): A session had already been started - ignoring in C:\Xampp\htdocs\SereneTripsLK\admin\dashboard.php on line 6
 [18-Sep-2025 06:40:04 Europe/Berlin] PHP Notice:  session_start(): A session had already been started - ignoring in C:\Xampp\htdocs\SereneTripsLK\admin\reservation_details.php on line 6
 [18-Sep-2025 06:40:08 Europe/Berlin] PHP Notice:  session_start(): A session had already been started - ignoring in C:\Xampp\htdocs\SereneTripsLK\admin\dashboard.php on line 6
+[19-Sep-2025 04:19:26 Europe/Berlin] Database connection failed: SQLSTATE[HY000] [2002] php_network_getaddresses: getaddrinfo failed: No such host is known. 
+[19-Sep-2025 04:19:43 Europe/Berlin] Database connection failed: SQLSTATE[HY000] [2002] php_network_getaddresses: getaddrinfo failed: No such host is known. 
+[19-Sep-2025 04:19:44 Europe/Berlin] Database connection failed: SQLSTATE[HY000] [2002] php_network_getaddresses: getaddrinfo failed: No such host is known. 

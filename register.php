@@ -210,6 +210,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </div>
             <?php endif; ?>
             
+            <!-- JavaScript validation messages -->
+            <div id="validation-messages" style="display: none;">
+                <div class="alert alert-error">
+                    <i class="fas fa-exclamation-circle"></i> <span id="validation-text"></span>
+                </div>
+            </div>
+            
             <form method="POST" action="">
                 <div class="form-row">
                     <div class="form-group">
@@ -271,5 +278,115 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
     
     <script src="script.js"></script>
+    <script>
+        // Enhanced form validation
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.querySelector('form');
+            const validationMessages = document.getElementById('validation-messages');
+            const validationText = document.getElementById('validation-text');
+            
+            // Hide validation messages initially
+            validationMessages.style.display = 'none';
+            
+            // Form submission validation
+            form.addEventListener('submit', function(e) {
+                const firstName = document.getElementById('first_name').value.trim();
+                const lastName = document.getElementById('last_name').value.trim();
+                const email = document.getElementById('email').value.trim();
+                const password = document.getElementById('password').value;
+                const confirmPassword = document.getElementById('confirm_password').value;
+                
+                // Clear previous validation messages
+                validationMessages.style.display = 'none';
+                
+                // Validate required fields
+                if (!firstName) {
+                    showValidationError('First name is required');
+                    e.preventDefault();
+                    return false;
+                }
+                
+                if (!lastName) {
+                    showValidationError('Last name is required');
+                    e.preventDefault();
+                    return false;
+                }
+                
+                if (!email) {
+                    showValidationError('Email address is required');
+                    e.preventDefault();
+                    return false;
+                }
+                
+                // Validate email format
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(email)) {
+                    showValidationError('Please enter a valid email address');
+                    e.preventDefault();
+                    return false;
+                }
+                
+                if (!password) {
+                    showValidationError('Password is required');
+                    e.preventDefault();
+                    return false;
+                }
+                
+                if (password.length < 6) {
+                    showValidationError('Password must be at least 6 characters long');
+                    e.preventDefault();
+                    return false;
+                }
+                
+                if (!confirmPassword) {
+                    showValidationError('Please confirm your password');
+                    e.preventDefault();
+                    return false;
+                }
+                
+                if (password !== confirmPassword) {
+                    showValidationError('Passwords do not match');
+                    e.preventDefault();
+                    return false;
+                }
+                
+                // If all validations pass, allow form submission
+                return true;
+            });
+            
+            function showValidationError(message) {
+                validationText.textContent = message;
+                validationMessages.style.display = 'block';
+                
+                // Scroll to validation message
+                validationMessages.scrollIntoView({ behavior: 'smooth' });
+            }
+            
+            // Real-time password confirmation validation
+            const passwordField = document.getElementById('password');
+            const confirmPasswordField = document.getElementById('confirm_password');
+            
+            confirmPasswordField.addEventListener('input', function() {
+                if (passwordField.value && confirmPasswordField.value) {
+                    if (passwordField.value !== confirmPasswordField.value) {
+                        confirmPasswordField.setCustomValidity('Passwords do not match');
+                    } else {
+                        confirmPasswordField.setCustomValidity('');
+                    }
+                }
+            });
+            
+            // Real-time email validation
+            const emailField = document.getElementById('email');
+            emailField.addEventListener('blur', function() {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (this.value && !emailRegex.test(this.value)) {
+                    this.setCustomValidity('Please enter a valid email address');
+                } else {
+                    this.setCustomValidity('');
+                }
+            });
+        });
+    </script>
 </body>
 </html>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<!-- Individual Test Suites for Separate Execution -->
+
+<!-- User Registration Test Suite -->
+<suite name="User Registration Test Suite" verbose="1">
+    <test name="User Registration Tests">
+        <classes>
+            <class name="com.flowergarden.tests.UserRegistrationTest"/>
+        </classes>
+    </test>
+    <listeners>
+        <listener class-name="com.flowergarden.utils.TestListener"/>
+    </listeners>
+</suite>
+
+<!-- User Login Test Suite -->
+<suite name="User Login Test Suite" verbose="1">
+    <test name="User Login Tests">
+        <classes>
+            <class name="com.flowergarden.tests.UserLoginTest"/>
+        </classes>
+    </test>
+    <listeners>
+        <listener class-name="com.flowergarden.utils.TestListener"/>
+    </listeners>
+</suite>
+
+<!-- Hotel Search Test Suite -->
+<suite name="Hotel Search Test Suite" verbose="1">
+    <test name="Hotel Search Tests">
+        <classes>
+            <class name="com.flowergarden.tests.HotelSearchTest"/>
+        </classes>
+    </test>
+    <listeners>
+        <listener class-name="com.flowergarden.utils.TestListener"/>
+    </listeners>
+</suite>
+
+<!-- Hotel Booking Test Suite -->
+<suite name="Hotel Booking Test Suite" verbose="1">
+    <test name="Hotel Booking Tests">
+        <classes>
+            <class name="com.flowergarden.tests.HotelBookingTest"/>
+        </classes>
+    </test>
+    <listeners>
+        <listener class-name="com.flowergarden.utils.TestListener"/>
+    </listeners>
+</suite>
+
+<!-- Reservation View Test Suite -->
+<suite name="Reservation View Test Suite" verbose="1">
+    <test name="Reservation View Tests">
+        <classes>
+            <class name="com.flowergarden.tests.ReservationViewTest"/>
+        </classes>
+    </test>
+    <listeners>
+        <listener class-name="com.flowergarden.utils.TestListener"/>
+    </listeners>
+</suite>
+
+<!-- Reservation Cancellation Test Suite -->
+<suite name="Reservation Cancellation Test Suite" verbose="1">
+    <test name="Reservation Cancellation Tests">
+        <classes>
+            <class name="com.flowergarden.tests.ReservationCancellationTest"/>
+        </classes>
+    </test>
+    <listeners>
+        <listener class-name="com.flowergarden.utils.TestListener"/>
+    </listeners>
+</suite>

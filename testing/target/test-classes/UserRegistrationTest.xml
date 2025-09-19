@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="User Registration Test Suite" verbose="1">
+    <test name="User Registration Tests">
+        <classes>
+            <class name="com.flowergarden.tests.UserRegistrationTest"/>
+        </classes>
+    </test>
+    <listeners>
+        <listener class-name="com.flowergarden.utils.TestListener"/>
+    </listeners>
+</suite>
